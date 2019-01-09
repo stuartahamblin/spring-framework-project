@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title th:text="${title}"></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-
+    <link rel="stylesheet" type="text/css" href="../static/css/local.css" th:href="@{/css/local.css}" />
 </head>
 <body>
 <div th:fragment="header">
@@ -13,10 +13,10 @@
 
 <nav th:fragment="navbar">
     <ul class="nav">
-        <li class="nav-item"><a href="/">Nav 1</a></li>
-        <!--<li class="nav-item"><a href="/quotes">/Nav 2</a></li>-->
-        <li class="nav-item"><a href="/hello">Nav 3</a></li>
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/hello">Hello</a></li>
         <li class="nav-item"><a href="/roll-dice">Roll Dice</a></li>
+        <li class="nav-item"><a href="/posts">Posts</a></li>
     </ul>
 </nav>
 
