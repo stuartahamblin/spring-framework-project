@@ -3,6 +3,9 @@ package com.codeup.springframeworkproject.models;
 public class Post {
     private String title;
     private String body;
+
+
+
     private int id;
 
 //    private static Post[] posts = {
@@ -34,5 +37,13 @@ public class Post {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 }
