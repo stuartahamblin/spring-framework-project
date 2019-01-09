@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials::head('Dice Game')"></head>
+<!--check the pushed code-->
+<body>
+<div class="container">
+    <div th:replace="partials :: header"></div>
+    <div th:replace="partials :: navbar"></div>
+    <h2>We just rolled the dice. Guess what we rolled.</h2>
+    <ul>
+        <li><a href="roll-dice/1">1</a></li>
+        <li><a href="roll-dice/2">2</a></li>
+        <li><a href="roll-dice/3">3</a></li>
+        <li><a href="roll-dice/4">4</a></li>
+        <li><a href="roll-dice/5">5</a></li>
+        <li><a href="roll-dice/6">6</a></li>
+    </ul>
+    <div th:replace="partials :: footer"></div>
+    <div th:replace="partials :: scripts"></div>
+</div>
+</body>
+</html>
