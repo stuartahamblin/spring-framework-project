@@ -4,10 +4,7 @@ import com.codeup.springframeworkproject.models.Post;
 import com.codeup.springframeworkproject.services.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PostController {
@@ -31,25 +28,26 @@ public class PostController {
     }
 
     @GetMapping("/posts/create")
-    public String create(Model model) {
+    public String showCreateForm(Model model) {
         model.addAttribute("post", new Post());
         return "posts/create";
     }
 
     @PostMapping("/posts/create")
-    public String save(Post post) {
+    public String saveCreateForm(Post post) {
         postService.create(post);
         return "redirect:/posts";
     }
 
     @GetMapping("/posts/{id}/edit")
-    public String edit(@PathVariable int id, Model model) {
+    public String showEditForm(@PathVariable int id, Model model) {
         model.addAttribute("post", postService.getPostById(id));
         return "posts/edit";
     }
 
-    @PostMapping("/posts/edit")
-    public String saveEdit(Post post, Model model){
-        return "redirect:/posts";
+    @PostMapping("/posts/${id}/edit")
+    public String saveEditForm(@ModelAttribute Post post){
+        postService.editPost(post);
+        return "redirect:/posts/" + post.getId();
     }
 }

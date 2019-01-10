@@ -30,6 +30,12 @@ public class PostService {
         return posts.get(id-1);
     }
 
+    public editPost(Post post){
+        Post pp = posts.get(post.getId() - 1);
+        pp.setTitle(post.getTitle());
+        pp.setBody(post.getBody());
+    }
+
     public void createPosts() {
         create(new Post("New post 1", "lorem impsum dolor set amit", 0));
         create(new Post("New post 2", "lorem impsum dolor set amit", 0));
