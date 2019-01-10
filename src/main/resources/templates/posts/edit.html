@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials::head('Create Post Form')"></head>
+<body>
+<div class="container">
+    <div th:replace="partials :: header"></div>
+    <div th:replace="partials :: navbar"></div>
+
+    <form action="/posts/edit" method="post" th:object="${post}">
+        <h3>Title</h3>
+        <input th:value="*{title}" />
+        <h3>Body</h3>
+        <input th:value="*{body}"/>
+        <input type="submit" />
+    </form>
+
+    <div th:replace="partials :: footer"></div>
+    <div th:replace="partials :: scripts"></div>
+</div>
+</body>
+</html>

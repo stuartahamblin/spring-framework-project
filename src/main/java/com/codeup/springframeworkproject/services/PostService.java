@@ -2,6 +2,8 @@ package com.codeup.springframeworkproject.services;
 
 import com.codeup.springframeworkproject.models.Post;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
 import java.util.ArrayList;
 import java.util.List;
 
