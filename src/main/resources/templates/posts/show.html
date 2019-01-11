@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials::head('Show Post')"></head>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials::head('Posts Home')"></head>
 <body>
-<div class="container">
-    <div th:replace="partials :: header"></div>
-    <div th:replace="partials :: navbar"></div>
-
+<main role="main" class="container">
+    <div th:replace="partials::header"></div>
+    <div th:replace="partials::navbar"></div>
     <div class="card">
         <div class="card-body">
             <h5 class="card-title"><span th:text="${post.title}"></span></h5>
-            <p class="card-text"><span th:text="${post.body}"></span></p>
+            <p class="card-text"><span th:text="${post.body}"></span> </p>
+            <a th:href="${post.id} + '/edit'" class="btn-info btn-sm">Edit</a>
         </div>
     </div>
-
-<div th:replace="partials :: footer"></div>
-<div th:replace="partials :: scripts"></div>
-</div>
+    <div th:replace="partials::footer"></div>
+</main><!-- /.container -->
+<div th:replace="partials::scripts"></div>
 </body>
 </html>

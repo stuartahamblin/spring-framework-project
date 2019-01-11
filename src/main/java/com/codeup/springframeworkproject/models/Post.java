@@ -1,10 +1,23 @@
 package com.codeup.springframeworkproject.models;
 
-public class Post {
-    private String title;
-    private String body;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Post {
+
+    @Id
+    @GeneratedValue
     private int id;
+
+    @Column(nullable = false, length = 240)
+    private String title;
+
+    @Column(nullable = false)
+    private String body;
 
     public Post(){}
 

@@ -24,6 +24,7 @@ public class PostController {
     @GetMapping("/posts/{id}")
     public String show(@PathVariable int id, Model model) {
         model.addAttribute("post", postService.getPostById(id));
+        model.addAttribute("id", id);
         return "posts/show";
     }
 
@@ -45,9 +46,10 @@ public class PostController {
         return "posts/edit";
     }
 
-    @PostMapping("/posts/${id}/edit")
-    public String saveEditForm(@ModelAttribute Post post){
-        postService.editPost(post);
-        return "redirect:/posts/" + post.getId();
+    @PostMapping("/posts/{id}/edit")
+    public String editPost(@ModelAttribute Post post) {
+        String page = Integer.toString(post.getId());
+        postService.edit(post);
+        return "redirect:/posts/" + page;
     }
 }
