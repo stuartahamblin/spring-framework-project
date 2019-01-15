@@ -28,7 +28,6 @@ public class PostService {
         postDao.save(post);
     }
 
-
     public void edit(Post post) {
         postDao.save(post);
     }
