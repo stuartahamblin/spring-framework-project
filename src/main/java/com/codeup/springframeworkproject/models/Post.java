@@ -1,12 +1,11 @@
 package com.codeup.springframeworkproject.models;
 
+//import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="post")
 public class Post {
 
     @Id
@@ -19,19 +18,17 @@ public class Post {
     @Column(nullable = false)
     private String body;
 
-    public Post(){}
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+//    @OneToOne
+    private User user;
 
-    public Post(String title, String body, int id) {
-        this.title = title;
-        this.body = body;
-        this.id = id;
-    }
+    public Post(){}
 
     public Post(String title, String body) {
         this.title = title;
         this.body = body;
     }
-
 
     public String getTitle() {
         return title;
@@ -55,5 +52,13 @@ public class Post {
 
     public int getId() {
         return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
