@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:fragment="head(title)">
     <meta charset="UTF-8" />
     <title th:text="${title}"></title>
@@ -17,12 +18,22 @@
         <li class="nav-item"><a href="/hello">Hello</a></li>
         <li class="nav-item"><a href="/roll-dice">Roll Dice</a></li>
         <li class="nav-item"><a href="/posts">Posts</a></li>
+        <li>
+            <form th:action="@{/logout}" th:method="post">
+                <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+            </form>
+        </li>
     </ul>
 </nav>
 
 <div th:fragment="footer" class="footer">
     <footer>
         <h3>Footer</h3>
+        <div sec:authorize="isAuthenticated()">
+            <p>User ID: <span th:text="${#authentication.principal.id}"/></p>
+            <p>Username: <span th:text="${#authentication.principal.username}"/></p>
+            <p>Email: <span th:text="${#authentication.principal.email}"/></p>
+        </div>
     </footer>
 </div>
 <div th:fragment="scripts">

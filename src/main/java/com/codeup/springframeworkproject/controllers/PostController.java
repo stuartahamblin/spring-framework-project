@@ -4,6 +4,7 @@ import com.codeup.springframeworkproject.models.Post;
 import com.codeup.springframeworkproject.models.User;
 import com.codeup.springframeworkproject.repositories.UserRepository;
 import com.codeup.springframeworkproject.services.PostService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -43,7 +44,8 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String saveCreateForm(Post post) {
-        post.setUser(userRepo.findOne(1));
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        post.setUser(user);
         postService.create(post);
         return "redirect:/posts";
     }
@@ -56,9 +58,9 @@ public class PostController {
 
     @PostMapping("/posts/{id}/edit")
     public String editPost(@ModelAttribute Post post) {
-        String page = Integer.toString(post.getId());
+//        String page = Integer.toString(post.getId());
         postService.edit(post);
-        return "redirect:/posts/" + page;
+        return "redirect:/posts";
     }
 
 //    @PostMapping("/posts/{id}/delete")
