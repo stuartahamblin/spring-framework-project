@@ -17,6 +17,6 @@ show tables;
 INSERT INTO users (email, password, username)
 VALUES ('blogger@email.com', 'bloggerpass', 'blogger1');
 
-SELECT * FROM post;
+SELECT * FROM users;
 
 DELETE FROM post WHERE id = 1;

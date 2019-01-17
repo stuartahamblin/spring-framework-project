@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="partials::head('Posts Home')"></head>
 <body>
 <main role="main" class="container">
@@ -12,7 +13,7 @@
                 <span th:text="${post.body}"></span>
             </p>
             <p class="card-text">
-                Written by: <span th:text="${post.getUser().getEmail()}"></span>
+                <!--Written by: <span th:text="${post.getUser().getEmail()}"></span>-->
             </p>
             <a th:href="${post.id} + '/edit'" class="btn-info btn-sm">Edit</a>
         </div>

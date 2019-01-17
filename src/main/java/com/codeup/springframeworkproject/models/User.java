@@ -11,16 +11,23 @@ public class User {
     @GeneratedValue
     private int id;
 
-    @Column(nullable = false, length = 240)
+    @Column(unique=true, nullable = false, length = 240)
     private String username;
 
-    @Column(nullable = false, length = 240)
+    @Column(unique=true, nullable = false, length = 240)
     private String email;
 
     @Column(nullable = false, length = 240)
     private String password;
 
     public User(){}
+
+    public User(User copy){
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+    }
 
     public User(String username, String email, String password) {
         this.username = username;
